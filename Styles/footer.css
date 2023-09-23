@@ -1,0 +1,33 @@
+.foot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 20px;
+    height: 100px;
+    font-family: lato,sans-serif;
+}
+.link-foot1{
+    height: 100%;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.link-foot{
+    /* text-align: center; */
+    margin: 10px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.783);
+    font-weight: 900;
+    transition: 200ms;
+    
+}
+.link-foot:hover{
+    color: rgb(210, 97, 97);
+    padding: 10px 0px;
+    transform:translateY(-6px);
+}

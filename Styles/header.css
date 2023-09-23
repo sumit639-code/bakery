@@ -155,4 +155,9 @@ body {
   color: rgb(255, 255, 255);
   
 }
+.nav-tile:active{
+  padding: 6px 60px;
+  background-color: #cd3a21;
+  color: rgb(255, 255, 255);
+}
 

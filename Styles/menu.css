@@ -90,3 +90,54 @@
 .card-btn:active{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
+
+.links-menu{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.links-pages{
+    position: relative;
+    margin: 10px;
+    padding: 10px 10px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.251);
+    border-radius: 20px;
+    transition: 400ms cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+.cake-link{
+    font-family: lato, sans-serif;
+    padding: 10px 20px;
+    font-weight: 800;
+    /* margin: 10px 10px; */
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: 400ms cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+.cake-link:hover{
+    color: rgb(255, 92, 92);
+    background-color: linear-gradient(0deg, rgba(255,92,92,1) 100%, rgba(0,0,0,1) 100%);
+    /* background-color: #cd3b21; */
+    border-radius: 20px;
+}
+.st1:hover ~ .link-style{
+    left: 32px;
+}
+.st2:hover ~ .link-style{
+    left: 112px;
+    width: 50px;
+}
+.link-style{
+    position: absolute;
+    height: 0.20rem;
+    width: 33px;
+    background-color: #cd3b21;
+    box-shadow: #cd3b215d 0px 1px 2px 0px, #cd3b214e 0px 2px 6px 2px;
+    top: 30px;
+    left: 32px;
+    border-radius: 20px;
+    transition: 400ms;
+}

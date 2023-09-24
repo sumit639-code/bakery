@@ -4,8 +4,9 @@
     justify-content: center;
     flex-direction: column;
     padding: 20px 20px;
-    height: 100px;
+    height: auto;
     font-family: lato,sans-serif;
+    transition: 400ms;
 }
 .link-foot1{
     height: 100%;
@@ -30,4 +31,9 @@
     color: rgb(210, 97, 97);
     padding: 10px 0px;
     transform:translateY(-6px);
+}
+@media only screen and (max-width:400px){
+    .link-foot1{
+        flex-direction: column;
+    }
 }

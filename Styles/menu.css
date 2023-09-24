@@ -62,9 +62,9 @@
     margin-bottom: 7px;
 }
 .card-btn{
-    
+    /* margin-right: 15px; */
     margin: 15px 20px;
-    padding: 12px 80px;
+    padding: 12px 60px;
     border: 1px solid rgba(0, 0, 0, 0.221);
     border-radius: 20px;
     background-color: #cd3b21d0;
@@ -79,9 +79,11 @@
     transition: 400ms cubic-bezier(0.215, 0.610, 0.355, 1);
     margin-bottom: 20px;
     margin-top: 8px;
+    /* width: 100%; */
+
 }
 .card-btn:hover{
-    padding: 12px 60px;
+    padding: 12px 50px;
     transform: translateY(-5px);
     background-color: #cd3b21;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
@@ -102,10 +104,10 @@
 .links-pages{
     position: relative;
     margin: 10px;
-    padding: 10px 10px;
+    padding: 15px 10px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.251);
-    border-radius: 20px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 40px;
     transition: 400ms cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 .cake-link{
@@ -114,7 +116,7 @@
     font-weight: 800;
     /* margin: 10px 10px; */
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     transition: 400ms cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 .cake-link:hover{
@@ -123,6 +125,7 @@
     /* background-color: #cd3b21; */
     border-radius: 20px;
 }
+
 .st1:hover ~ .link-style{
     left: 32px;
 }
@@ -136,7 +139,7 @@
     width: 33px;
     background-color: #cd3b21;
     box-shadow: #cd3b215d 0px 1px 2px 0px, #cd3b214e 0px 2px 6px 2px;
-    top: 30px;
+    top: 34px;
     left: 32px;
     border-radius: 20px;
     transition: 400ms;

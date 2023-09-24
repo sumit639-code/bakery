@@ -14,7 +14,7 @@ const Menu = () => {
           <Link href="/Menu" className="cake-link st1">
             Cake
           </Link>
-          <Link href="https://wa.link/5qgflv" className="cake-link st2" target="blank">
+          <Link href="/Menu" className="cake-link st2" target="blank">
             CupCake
           </Link>
           <span className="link-style"></span>

@@ -19,7 +19,7 @@ const cake = (props) => {
         <h1 className="card-title">{props.data.title}</h1>
         <p className="card-desc">{props.data.desc}</p>
         <h1 className="card-price">₹ {props.data.price}</h1>
-        <button className="card-btn">Buy now</button>
+        <button className="card-btn">Add to Cart</button>
       </div>
     </>
   );

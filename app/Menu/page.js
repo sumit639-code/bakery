@@ -3,7 +3,9 @@ import React from "react";
 import "@/Styles/menu.css";
 import Data from "@/Data/data.json";
 import Link from "next/link";
+
 const Menu = () => {
+  
   // Data.map((t,i)=>{
   //   console.log(t.title);
   // })
@@ -22,9 +24,10 @@ const Menu = () => {
       </div>
       <div className="menu-main">
         {Data.map((t, i) => {
-          return <Cake data={t} key={t.key} />;
+          return <Cake data={t} key={t.key}  />;
         })}
       </div>
+      
     </>
   );
 };

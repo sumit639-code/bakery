@@ -53,7 +53,7 @@ const header = () => {
         </Link>
       </div>
       ): (
-        <div className="menu-mob" style={{transform:'translateX(110%)',opacity:'0'}}>
+        <div className="menu-mob" style={{transform:'translateX(110%)',opacity:'0',display:"none"}}>
         <Link href="/" className="link menu-tile" onClick={out}>
           Home
         </Link>

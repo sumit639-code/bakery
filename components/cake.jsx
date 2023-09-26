@@ -16,7 +16,7 @@ const cake = (props) => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "dark",
+      theme: "colored",
       });
   }
   return (
@@ -53,7 +53,7 @@ const cake = (props) => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        theme="colored"
       />
     </>
   );

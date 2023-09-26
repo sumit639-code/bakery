@@ -1,0 +1,16 @@
+[
+    {
+        "key":0,
+        "title":"Vanilla Cup cake",
+        "desc":"topping can be of cream",
+        "price":"30/pc",
+        "img":"/images/vanilla.jpg"
+    },
+    {
+        "key":1,
+        "title":"Choclate Cup cake",
+        "desc":"topping can be of cream",
+        "price":"35/pc",
+        "img":"/images/chocolate.jpg"
+    }
+]

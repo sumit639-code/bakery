@@ -126,21 +126,3 @@
     border-radius: 20px;
 }
 
-.st1:hover ~ .link-style{
-    left: 32px;
-}
-.st2:hover ~ .link-style{
-    left: 112px;
-    width: 50px;
-}
-.link-style{
-    position: absolute;
-    height: 0.20rem;
-    width: 33px;
-    background-color: #cd3b21;
-    box-shadow: #cd3b215d 0px 1px 2px 0px, #cd3b214e 0px 2px 6px 2px;
-    top: 34px;
-    left: 32px;
-    border-radius: 20px;
-    transition: 400ms;
-}

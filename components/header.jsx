@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import "@/Styles/header.css";
 import Image from "next/image";
 // import logo-pc from '/images/menu.png';
-const header = () => {
-  const [nav, setNav] = useState(false)
+const header = (props) => {
+  const [nav, setNav] = useState(false);
+  console.log(props.cart)
   function out(){
     setTimeout(() => {
       setNav(false)

@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import "@/Styles/header.css";
 import Image from "next/image";
 // import logo-pc from '/images/menu.png';
-const header = (props) => {
+const header = () => {
   const [nav, setNav] = useState(false);
-  console.log(props.cart)
+
   function out(){
     setTimeout(() => {
       setNav(false)
@@ -28,7 +28,7 @@ const header = (props) => {
           <Link href="/Menu" className="link nav-tile">
             Menu
           </Link>
-          <Link href="/About" className="link nav-tile">
+          <Link href="/Addtocart" className="link nav-tile">
             About
           </Link>
         </div>

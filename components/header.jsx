@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Link from "next/link";
 import React, { useState } from "react";
 import "@/Styles/header.css";
@@ -7,9 +7,9 @@ import Image from "next/image";
 const header = () => {
   const [nav, setNav] = useState(false);
 
-  function out(){
+  function out() {
     setTimeout(() => {
-      setNav(false)
+      setNav(false);
     }, 150);
   }
   return (
@@ -28,43 +28,60 @@ const header = () => {
           <Link href="/Menu" className="link nav-tile">
             Menu
           </Link>
-          <Link href="/Addtocart" className="link nav-tile">
+          <Link href="/About" className="link nav-tile">
             About
           </Link>
         </div>
-        <div className="menu-icon" onClick={()=>{setNav(!nav)}}>
-          <Image
-            src="/icons/menu.png"
-            height={40}
-            width={40}
-            alt="menu icon"
-          />
+        <div
+          className="menu-icon"
+          onClick={() => {
+            setNav(!nav);
+          }}
+        >
+          <Image src="/icons/menu.png" height={40} width={40} alt="menu icon" />
+        </div>
+        <div className="cartimg">
+          <Link href="/Addtocart" className="cartlink">
+            <Image
+              src="/icons/cart.svg"
+              height={40}
+              width={40}
+              alt="cart icon"
+            />
+          </Link>
         </div>
       </div>
       {nav ? (
         <div className="menu-mob">
-        <Link href="/" className="link menu-tile" onClick={out}>
-          Home
-        </Link>
-        <Link href="/Menu" className="link menu-tile" onClick={out}>
-          Menu
-        </Link>
-        <Link href="/About" className="link menu-tile" onClick={out}>
-          About
-        </Link>
-      </div>
-      ): (
-        <div className="menu-mob" style={{transform:'translateX(110%)',opacity:'0',display:"none"}}>
-        <Link href="/" className="link menu-tile" onClick={out}>
-          Home
-        </Link>
-        <Link href="/Menu" className="link menu-tile" onClick={out}>
-          Menu
-        </Link>
-        <Link href="/About" className="link menu-tile" onClick={out}>
-          About
-        </Link>
-      </div>
+          <Link href="/" className="link menu-tile" onClick={out}>
+            Home
+          </Link>
+          <Link href="/Menu" className="link menu-tile" onClick={out}>
+            Menu
+          </Link>
+          <Link href="/About" className="link menu-tile" onClick={out}>
+            About
+          </Link>
+        </div>
+      ) : (
+        <div
+          className="menu-mob"
+          style={{
+            transform: "translateX(110%)",
+            opacity: "0",
+            display: "none",
+          }}
+        >
+          <Link href="/" className="link menu-tile" onClick={out}>
+            Home
+          </Link>
+          <Link href="/Menu" className="link menu-tile" onClick={out}>
+            Menu
+          </Link>
+          <Link href="/About" className="link menu-tile" onClick={out}>
+            About
+          </Link>
+        </div>
       )}
     </>
   );

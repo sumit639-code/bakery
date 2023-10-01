@@ -1,14 +1,18 @@
 "use client";
+import { CartState } from "@/app/state/atoms/CartState";
 // "use server"
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRecoilState } from "recoil";
+
 const cake = (props) => {
+  const [cart,setCart]= useRecoilState(CartState);
   const id = props.data.key;
   function notify() {
-    toast.success(`${props.data.title} has been added`, {
+    toast.success(`Chotu ek ${props.data.title} pack kr`, {
       position: "top-center",
       autoClose: 1500,
       hideProgressBar: false,
@@ -18,6 +22,12 @@ const cake = (props) => {
       progress: undefined,
       theme: "colored",
       });
+    addtoCart();
+  }
+
+  function addtoCart(){
+    setCart(prev=>[...prev,props.data])
+    console.log(cart);
   }
   return (
     <>

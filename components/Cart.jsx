@@ -1,28 +1,41 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
-const cart = () => {
+const cart = (props) => {
+  const [count, setcount] = useState(1);
+  function addcount() {
+    if (count >= 9) {
+      setcount(10);
+    } else {
+      setcount(count + 1);
+    }
+  }
+  function subcount() {
+    if (count <= 1) {
+      setcount(1);
+    } else {
+      setcount(count - 1);
+    }
+  }
+  // console.log(props)
   return (
     <>
-      <div className="cartitem">
-        <Image
-          src="/icons/cart.svg"
-          width={20}
-          height={20}
-          className="cartimg"
-        />
+      <div className="cartitem" id={props.key}>
+        <Image src={props.dta.img} width={20} height={20} className="cartimg" />
         <span className="cartinfo">
-          <span className="carttitle">title cake</span>
-          <span className="cartdesc">about the cake and the topping</span>
+          <span className="carttitle">{props.dta.title}</span>
+          <span className="cartdesc">{props.dta.desc}</span>
         </span>
         <div className="quantity">
           Quantity
           <span className="qntybtn">
-            <button>-</button>1<button>+</button>
+            <button onClick={subcount}>-</button>
+            {count}
+            <button onClick={addcount}>+</button>
           </span>
         </div>
         <div className="price">
-          <span className="pri">300</span>
+          <span className="pri">{props.dta.price}</span>
           <button>remove</button>
         </div>
       </div>

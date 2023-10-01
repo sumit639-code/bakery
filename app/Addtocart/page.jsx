@@ -1,17 +1,27 @@
+"use client";
 import React from "react";
 import "@/Styles/cart.css";
-import Cart from "@/components/cart";
+import Cart from "@/components/Cart";
+import { useRecoilValue } from "recoil";
+import { CartState } from "../state/atoms/CartState";
 
 const page = () => {
+  const cartval = useRecoilValue(CartState);
+  function show() {
+    console.log(cartval);
+  }
   return (
     <>
       <div className="maincart">
-        <Cart />
-        <Cart />
-        
+        {cartval.map((val)=>{
+          return <Cart dta={val} key={val.id} />
+
+        })}
+        {/* <Cart dta={cartval[0]} key={cartval[0].id} /> */}
+
         <hr />
         <div className="total">Total:</div>
-        <button>Buy now</button>
+        <button onClick={show}>Buy now</button>
       </div>
     </>
   );

@@ -29,6 +29,8 @@ const cake = (props) => {
     setCart(prev=>[...prev,props.data])
     console.log(cart);
   }
+
+  
   return (
     <>
       <div className="card-main">

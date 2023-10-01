@@ -1,7 +1,10 @@
+import { CartState } from "@/app/state/atoms/CartState";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useRecoilValue } from "recoil";
 
 const cart = (props) => {
+  const carval =useRecoilValue(CartState)
   const [count, setcount] = useState(1);
   function addcount() {
     if (count >= 9) {

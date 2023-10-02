@@ -14,14 +14,15 @@ const page = () => {
     <>
       <div className="maincart">
         {cartval.map((val)=>{
-          return <Cart dta={val} key={val.id} />
+          
+          return <Cart dta={val} key={val.key} />
 
         })}
         {/* <Cart dta={cartval[0]} key={cartval[0].id} /> */}
 
         <hr />
         <div className="total">Total:</div>
-        <button onClick={show}>Buy now</button>
+        <button onClick={show} className="cartbuy">Buy now</button>
       </div>
     </>
   );

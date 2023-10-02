@@ -236,3 +236,20 @@ body {
   align-items: center;
   justify-content: center;
 }
+.cartlink{
+  position: relative;
+}
+.cartitemnum{
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  background-color: #cd3a21;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-family: lato, sans-serif;
+  color:white;
+}

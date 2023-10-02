@@ -4,8 +4,12 @@ import React, { useState } from "react";
 import "@/Styles/header.css";
 import Image from "next/image";
 import { Fragment } from "react"
+import { useRecoilValue } from "recoil";
+import { CartState } from "@/app/state/atoms/CartState";
 // import logo-pc from '/images/menu.png';
 const header = () => {
+  const cartCount = useRecoilValue(CartState)
+  // const [items, setItems] = useState(cartCount.length)
   const [nav, setNav] = useState(false);
 
   function out() {
@@ -43,6 +47,7 @@ const header = () => {
         </div>
         <div className="cartimg">
           <Link href="/Addtocart" className="cartlink">
+            <span className="cartitemnum">{cartCount.length}</span>
             <Image
               src="/icons/cart.svg"
               height={40}

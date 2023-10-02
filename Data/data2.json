@@ -4,13 +4,15 @@
         "title":"Vanilla Cup cake",
         "desc":"topping can be of cream",
         "price":"30/pc",
-        "img":"/images/vanilla.jpg"
+        "img":"/images/vanilla.jpg",
+        "quantity":1
     },
     {
         "key":1,
         "title":"Choclate Cup cake",
         "desc":"topping can be of cream",
         "price":"35/pc",
-        "img":"/images/chocolate.jpg"
+        "img":"/images/chocolate.jpg",
+        "quantity":1
     }
 ]

@@ -26,8 +26,18 @@ const cake = (props) => {
   }
 
   function addtoCart(){
-    setCart(prev=>[...prev,props.data])
-    console.log(cart);
+    if(cart.findIndex(pro=>pro.key === props.data.key) === -1){
+      setCart(prevData=> [...prevData,props.data])
+      // console.log(cart.findIndex(key=>console.log(key)))
+    }
+    else{
+      console.log(cart.findIndex(key=>console.log(key.key)))
+      setCart(prevData=>{
+        return prevData.map((Item)=>{
+          return Item.key === props.data.key ? {...Item, quantity:Item.quantity+1}:Item
+        })
+      })
+    }
   }
 
   

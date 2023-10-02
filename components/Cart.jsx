@@ -1,30 +1,27 @@
+"use client"
 import { CartState } from "@/app/state/atoms/CartState";
 import Image from "next/image";
-import React, { useState } from "react";
-import { useRecoilValue } from "recoil";
+import React from "react";
+import { useRecoilState } from "recoil";
 
 const cart = (props) => {
-  const carval =useRecoilValue(CartState)
-  const [count, setcount] = useState(1);
+  const [carval,setCarval] =useRecoilState(CartState)
   function addcount() {
-    if (count >= 9) {
-      setcount(10);
-    } else {
-      setcount(count + 1);
-    }
+    if(carval.map((e)=>e.id)==props.key){console.log("wokring..")}
+
   }
   function subcount() {
-    if (count <= 1) {
-      setcount(1);
-    } else {
-      setcount(count - 1);
-    }
   }
-  // console.log(props)
+  function remove(id){
+    let result = carval.filter(pov =>pov.key !== id)
+    
+  
+    setCarval(result)
+  }
   return (
     <>
-      <div className="cartitem" id={props.key}>
-        <Image src={props.dta.img} width={20} height={20} className="cartimg" />
+      <div className="cartitem" id={props.dta.key}>
+        <Image src={props.dta.img} width={500} height={500} className="cartimg-2" />
         <span className="cartinfo">
           <span className="carttitle">{props.dta.title}</span>
           <span className="cartdesc">{props.dta.desc}</span>
@@ -33,13 +30,13 @@ const cart = (props) => {
           Quantity
           <span className="qntybtn">
             <button onClick={subcount}>-</button>
-            {count}
+            {props.dta.quantity}
             <button onClick={addcount}>+</button>
           </span>
         </div>
         <div className="price">
           <span className="pri">{props.dta.price}</span>
-          <button>remove</button>
+          <button onClick={()=>remove(props.dta.key)}>Remove</button>
         </div>
       </div>
     </>

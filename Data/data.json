@@ -4,77 +4,88 @@
         "title":"vanilla cake",
         "desc":"topping can be of Any of your choice",
         "price":300,
-        "img":"/images/vanilla.jpg"
+        "img":"/images/vanilla.jpg",
+        "quantity":1
     },
     {
         "key":1,
         "title":"chocolate cake",
         "desc":"topping will be of chocolate or of your choice",
         "price":400,
-        "img":"/images/chocolate.jpg"
+        "img":"/images/chocolate.jpg",
+        "quantity":1
     },
     {
         "key":2,
         "title":"strawberry cake",
         "desc":"topping will be of decided on the descussion",
         "price":350,
-        "img":"/images/strawberry.jpg"
+        "img":"/images/strawberry.jpg",
+        "quantity":1
     },
     {
         "key":3,
         "title":"pineapple cake",
         "desc":"topping will be of matter design",
         "price":350,
-        "img":"/images/pineapple.jpg"
+        "img":"/images/pineapple.jpg",
+        "quantity":1
     },
     {
         "key":4,
         "title":"Dark chocolate cake",
         "desc":"topping will be of chocolate ",
         "price":500,
-        "img":"/images/dark-chocolate.jpg"
+        "img":"/images/dark-chocolate.jpg",
+        "quantity":1
     },
     {
         "key":5,
         "title":"Red velvet cake",
         "desc":"Made up of chocolate and the sense of red velvet",
         "price":450,
-        "img":"/images/red-velvet.jpg"
+        "img":"/images/red-velvet.jpg",
+        "quantity":1
     },
     {
         "key":6,
         "title":"Black Forest cake",
         "desc":"Made up of choclate and the crush of chocolate",
         "price":450,
-        "img":"/images/black-forest.jpg"
+        "img":"/images/black-forest.jpg",
+        "quantity":1
     },
     {
         "key":7,
         "title":"Devil's food cake",
         "desc":"Made up of choclate and taste of chocolate",
         "price":500,
-        "img":"/images/devil-cake.jpg"
+        "img":"/images/devil-cake.jpg",
+        "quantity":1
     },
     {
         "key":8,
         "title":"Ice cream cake",
         "desc":"With the ice cream and the taste of your fav icecream",
         "price":400,
-        "img":"/images/icecream-cake.jpg"
+        "img":"/images/icecream-cake.jpg",
+        "quantity":1
     },
     {
         "key":9,
         "title":"Rasmalai Cake",
         "desc":"your fav sweet in a cake",
         "price":400,
-        "img":"/images/rasmalai.jpg"
+        "img":"/images/rasmalai.jpg",
+        "quantity":1
     },
     {
         "key":10,
         "title":"doll Cake",
         "desc":"best for children and for your princess",
         "price":400,
-        "img":"/images/doll-cake.jpg"
+        "img":"/images/doll-cake.jpg",
+        "quantity":1
     }
     
     

@@ -103,24 +103,63 @@
   font-family: lato, sans-serif;
   font-size: 35px;
   text-transform: capitalize;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.288);
+  /* text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.288); */
   border: 1px dashed rgba(0, 0, 0, 0.244);
   border-radius: 40px;
   padding: 20px;
   transition: 500ms;
   overflow: hidden;
-  background: linear-gradient(180deg, #ffffff, #000000, #ffffff);
+  background: linear-gradient(270deg, #f3f3f345, #ff4747, #ffffff4d);
   background-repeat: no-repeat;
   background-size: 80%;
-  animation: animate 2s linear infinite;
+  animation: animate 3s ease-in infinite;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: rgba(2, 2, 2, 0);
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.103);
 }
 @keyframes animate {
   0% {
     background-position: -500%;
   }
-  100% {
+  50% {
     background-position: 500%;
   }
+  100%{
+    background-position: -500%;
+  }
+}
+
+.addanim{
+    position: absolute;
+    top: 24%;
+    color: rgb(245, 245, 245);
+    background-color: rgba(255, 39, 39, 0.95);
+    font-family: lato, sans-serif;
+    font-weight: 700;
+    font-size: medium;
+    text-transform: capitalize;
+    padding: 20px 40px;
+    overflow: hidden;
+    border-radius: 40px;
+    transition: 400ms cubic-bezier(0.215, 0.610, 0.355, 1);
+    /* transform: translateY(-500%); */
+    animation-name: box;
+    animation-duration: 1s;
+    /* animation-delay: 2s; */
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+    animation-iteration-count: 1;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+@keyframes box {
+    0%{
+        transform: translateY(-500%);
+        padding: 20px 20px;
+    }
+    100%{
+        transform: translateY(0%);
+
+        padding: 20px 40px ;
+    }
+    /* 100%{
+        transform: translateY(-500%);
+    } */
 }

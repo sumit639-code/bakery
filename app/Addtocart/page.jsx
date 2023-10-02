@@ -10,25 +10,33 @@ const page = () => {
   function show() {
     console.log(cartval);
   }
-  const Main =()=>{
-    return(<>
-      {cartval.map((val)=>{
-          
-        return <Cart dta={val} key={val.key} />
+  const Main = () => {
+    return (
+      <>
+        {cartval.map((val) => {
+          return <Cart dta={val} key={val.key} />;
+        })}
+        {/* <Cart dta={cartval[0]} key={cartval[0].id} /> */}
 
-      })}
-      {/* <Cart dta={cartval[0]} key={cartval[0].id} /> */}
-
-      <hr />
-      <div className="total">Total:</div>
-      <button onClick={show} className="cartbuy">Buy now</button>
+        <hr />
+        <div className="total">Total:</div>
+        <button onClick={show} className="cartbuy">
+          Buy now
+        </button>
       </>
-    )
-  }
+    );
+  };
   return (
     <>
       <div className="maincart">
-        {cartval.length ==0? (<div className="noth">nothing is available here</div>):<Main/>}
+        {cartval.length == 0 ? (
+          <><p className="addanim">add something to the cart</p>
+          <div className="noth">
+            nothing is available here
+          </div></>
+        ) : (
+          <Main />
+        )}
       </div>
     </>
   );

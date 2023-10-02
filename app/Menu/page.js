@@ -3,7 +3,7 @@ import React from "react";
 import "@/Styles/menu.css";
 import Data from "@/Data/data.json";
 import Link from "next/link";
-
+import { Fragment } from "react"
 const Menu = () => {
   
   // Data.map((t,i)=>{

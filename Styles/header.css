@@ -252,4 +252,5 @@ body {
   border-radius: 20px;
   font-family: lato, sans-serif;
   color:white;
+  transition: 400ms;
 }

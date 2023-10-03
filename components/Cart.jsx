@@ -35,8 +35,10 @@ const cart = (props) => {
           </span>
         </div>
         <div className="price">
-          <span className="pri">{props.dta.price}</span>
-          <button onClick={()=>remove(props.dta.key)}>Remove</button>
+          <span className="pri">₹ {props.dta.price}</span>
+          <button onClick={()=>remove(props.dta.key)}>
+            <Image src='/icons/recyclebin.png' width={20} height={20} className="pri-img" />
+          </button>
         </div>
       </div>
     </>

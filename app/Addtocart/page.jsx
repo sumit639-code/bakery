@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "@/Styles/cart.css";
 import Cart from "@/components/Cart";
 import { useRecoilValue } from "recoil";
@@ -7,8 +7,21 @@ import { CartState } from "../state/atoms/CartState";
 
 const page = () => {
   const cartval = useRecoilValue(CartState);
+  const [total, settotal] = useState(0);
+  useEffect(() => {
+    totalpricce()
+  })
+  
+  function totalpricce(){
+    let tl=0
+    cartval.map(pov=>{
+      tl = tl+ pov.price*pov.quantity;
+    })
+    settotal(tl)
+  }
   function show() {
     console.log(cartval);
+    totalpricce()
   }
   const Main = () => {
     return (
@@ -19,7 +32,7 @@ const page = () => {
         {/* <Cart dta={cartval[0]} key={cartval[0].id} /> */}
 
         <hr />
-        <div className="total">Total:</div>
+        <div className="total">Total: ₹{total}</div>
         <button onClick={show} className="cartbuy">
           Buy now
         </button>

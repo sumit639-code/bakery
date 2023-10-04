@@ -22,7 +22,7 @@ const Menu = () => {
       </div>
       <div className="menu-main">
         {Data.map((t, i) => {
-          return <Cake data={t} key={t.key}  />;
+          return <Cake data={t} key={t.key} pc="/pc" />;
         })}
       </div>
       

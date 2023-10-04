@@ -4,24 +4,29 @@ import "@/Styles/cart.css";
 import Cart from "@/components/Cart";
 import { useRecoilValue } from "recoil";
 import { CartState } from "../state/atoms/CartState";
+import Link from "next/link";
 
 const page = () => {
   const cartval = useRecoilValue(CartState);
   const [total, settotal] = useState(0);
   useEffect(() => {
-    totalpricce()
-  })
-  
-  function totalpricce(){
-    let tl=0
-    cartval.map(pov=>{
-      tl = tl+ pov.price*pov.quantity;
-    })
-    settotal(tl)
+    totalpricce();
+  });
+
+  function totalpricce() {
+    let tl = 0;
+    cartval.map((pov) => {
+      tl = tl + pov.price * pov.quantity;
+    });
+    settotal(tl);
   }
   function show() {
-    console.log(cartval);
-    totalpricce()
+    href =
+      "location.href=https://api.whatsapp.com/send?phone=91123456789&text=hi%20want%20the%20cake";
+  }
+
+  function textWp(item){
+    return [item.title,' x ',item.quantity].join("")
   }
   const Main = () => {
     return (
@@ -33,9 +38,14 @@ const page = () => {
 
         <hr />
         <div className="total">Total: ₹{total}</div>
-        <button onClick={show} className="cartbuy">
-          Buy now
-        </button>
+        <Link
+          href={`https://api.whatsapp.com/send?phone=919937686332&text=Hello%20i%20want%20to%20buy%20${cartval.map(textWp)}%20,All%20total%20price%20is%20₹${total}`}
+          target="blank"
+        >
+          <button onClick={show} className="cartbuy">
+            Buy now
+          </button>
+        </Link>
       </>
     );
   };
@@ -43,10 +53,10 @@ const page = () => {
     <>
       <div className="maincart">
         {cartval.length == 0 ? (
-          <><p className="addanim">add something to the cart</p>
-          <div className="noth">
-            nothing is available here
-          </div></>
+          <>
+            <p className="addanim">add something to the cart</p>
+            <div className="noth">nothing is available here</div>
+          </>
         ) : (
           <Main />
         )}

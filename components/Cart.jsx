@@ -9,11 +9,13 @@ const cart = (props) => {
   function addcount() {
     setCarval((prevData) => {
       return prevData.map((Item) => {
-        return Item.key === props.dta.key && Item.quantity<9
-          ? { ...Item, quantity: Item.quantity + 1 }
+        
+        return Item.key === props.dta.key && Item.quantity<20
+          ? {...Item, quantity: Item.quantity + 1 }
           : Item;
       });
     });
+    console.log(carval)
   }
   function subcount() {
     setCarval((prevData) => {

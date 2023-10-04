@@ -60,7 +60,7 @@ const cake = (props) => {
           </Link>
         </h1>
         <p className="card-desc">{props.data.desc}</p>
-        <h1 className="card-price">₹ {props.data.price}</h1>
+        <h1 className="card-price">₹ {props.data.price}{props.pc}</h1>
         <button className="card-btn" onClick={notify}>
           Add to Cart
         </button>

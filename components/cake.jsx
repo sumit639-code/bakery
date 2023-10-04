@@ -14,13 +14,13 @@ const cake = (props) => {
   function notify() {
     toast.success(`Chotu ek ${props.data.title} pack kr`, {
       position: "top-center",
-      autoClose: 1500,
+      autoClose: 400,
       hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
-      theme: "colored",
+      theme: "dark",
       });
     addtoCart();
   }
@@ -67,15 +67,15 @@ const cake = (props) => {
       </div>
       <ToastContainer
         position="top-center"
-        autoClose={1500}
+        autoClose={400}
         hideProgressBar={false}
         newestOnTop
         closeOnClick
         rtl={false}
         pauseOnFocusLoss
         draggable
-        pauseOnHover
-        theme="colored"
+        // pauseOnHover
+        theme="dark"
       />
     </>
   );

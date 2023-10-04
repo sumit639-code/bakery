@@ -7,11 +7,23 @@ import { useRecoilState } from "recoil";
 const cart = (props) => {
   const [carval, setCarval] = useRecoilState(CartState);
   function addcount() {
-    if (carval.map((e) => e.id) == props.key) {
-      console.log("wokring..");
-    }
+    setCarval((prevData) => {
+      return prevData.map((Item) => {
+        return Item.key === props.dta.key && Item.quantity<9
+          ? { ...Item, quantity: Item.quantity + 1 }
+          : Item;
+      });
+    });
   }
-  function subcount() {}
+  function subcount() {
+    setCarval((prevData) => {
+      return prevData.map((Item) => {
+        return Item.key === props.dta.key && Item.quantity>1
+          ? { ...Item, quantity: Item.quantity - 1 }
+          : Item;
+      });
+    });
+  }
   function remove(id) {
     let result = carval.filter((pov) => pov.key !== id);
 

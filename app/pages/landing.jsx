@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const landing = () => {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
-  addEventListener("resize", () => {
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-  });
+  // const [width, setWidth] = useState(window.innerWidth);
+  // const [height, setHeight] = useState(window.innerHeight);
+  // addEventListener("resize", () => {
+  //   setWidth(window.innerWidth);
+  //   setHeight(window.innerHeight);
+  // });
   // const [first, setfirst] = useState(second)
   return (
     <>
@@ -22,8 +22,8 @@ const landing = () => {
         </div>
         <Image
           src="/images/land.jpg"
-          width={width}
-          height={height}
+          width={1000}
+          height={1000}
           alt="Image of cake"
           className="img-styl"
           // fill
@@ -55,8 +55,8 @@ const landing = () => {
 
         <Image
           src="/images/land2.jpg"
-          width={width}
-          height={height}
+          width={1000}
+          height={1000}
           alt="Image of cupx  cake"
           className="img-styl"
         />

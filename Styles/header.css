@@ -24,6 +24,8 @@ body {
   align-items: center;
 }
 .img-styl {
+  width: 100vw;
+  height: 100vh;
   filter: brightness(0.6);
   object-fit: cover;
   transition: 1000ms cubic-bezier(0.23, 1, 0.32, 1);

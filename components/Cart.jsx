@@ -9,18 +9,17 @@ const cart = (props) => {
   function addcount() {
     setCarval((prevData) => {
       return prevData.map((Item) => {
-        
-        return Item.key === props.dta.key && Item.quantity<20
-          ? {...Item, quantity: Item.quantity + 1 }
+        return Item.key === props.dta.key && Item.quantity < 20
+          ? { ...Item, quantity: Item.quantity + 1 }
           : Item;
       });
     });
-    console.log(carval)
+    console.log(carval);
   }
   function subcount() {
     setCarval((prevData) => {
       return prevData.map((Item) => {
-        return Item.key === props.dta.key && Item.quantity>1
+        return Item.key === props.dta.key && Item.quantity > 1
           ? { ...Item, quantity: Item.quantity - 1 }
           : Item;
       });
@@ -34,37 +33,41 @@ const cart = (props) => {
   return (
     <>
       <div className="cartitem" id={props.dta.key}>
-        <Image
-          src={props.dta.img}
-          width={500}
-          height={500}
-          className="cartimg-2"
-          alt="Image of the product"
-        />
-        <span className="cartinfo">
-          <span className="carttitle">{props.dta.title}</span>
-          <span className="cartdesc">{props.dta.desc}</span>
-        </span>
-        <div className="quantity">
-          Quantity
-          <span className="qntybtn">
-            <button onClick={subcount}>-</button>
-            {props.dta.quantity}
-            <button onClick={addcount}>+</button>
+        <span className="flexqny">
+          <Image
+            src={props.dta.img}
+            width={500}
+            height={500}
+            className="cartimg-2"
+            alt="Image of the product"
+          />
+          <span className="cartinfo">
+            <span className="carttitle">{props.dta.title}</span>
+            <span className="cartdesc">{props.dta.desc}</span>
           </span>
-        </div>
-        <div className="price">
-          <span className="pri">₹ {props.dta.price}</span>
-          <button onClick={() => remove(props.dta.key)}>
-            <Image
-              src="/icons/recyclebin.png"
-              width={20}
-              height={20}
-              className="pri-img"
-              alt="image of the remove icon"
-            />
-          </button>
-        </div>
+        </span>
+        <span className="flexqny">
+          <div className="quantity">
+            Quantity
+            <span className="qntybtn">
+              <button onClick={subcount}>-</button>
+              {props.dta.quantity}
+              <button onClick={addcount}>+</button>
+            </span>
+          </div>
+          <div className="price">
+            <span className="pri">₹ {props.dta.price}</span>
+            <button onClick={() => remove(props.dta.key)} className="pricebtn">
+              <Image
+                src="/icons/recyclebin.png"
+                width={20}
+                height={20}
+                className="pri-img"
+                alt="image of the remove icon"
+              />
+            </button>
+          </div>
+        </span>
       </div>
     </>
   );

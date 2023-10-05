@@ -20,10 +20,7 @@ const page = () => {
     });
     settotal(tl);
   }
-  function show() {
-    href =
-      "location.href=https://api.whatsapp.com/send?phone=91123456789&text=hi%20want%20the%20cake";
-  }
+
 
   function textWp(item){
     return [item.title,' x ',item.quantity].join("")
@@ -39,10 +36,10 @@ const page = () => {
         <hr />
         <div className="total">Total: ₹{total}</div>
         <Link
-          href={`https://api.whatsapp.com/send?phone=919937686332&text=Hello%20i%20want%20to%20buy%20${cartval.map(textWp)}%20,All%20total%20price%20is%20₹${total}`}
+          href={`https://api.whatsapp.com/send?phone=91123456789&text=Hello%20i%20want%20to%20buy%20${cartval.map(textWp)}%20,All%20total%20price%20is%20₹${total}`}
           target="blank"
         >
-          <button onClick={show} className="cartbuy">
+          <button className="cartbuy">
             Buy now
           </button>
         </Link>

@@ -180,7 +180,7 @@
 
 @media only screen and (max-width:650px) {
   .cartitem{
-    font-size: smaller;
+    font-size: 15px;
     flex-direction: column;
     min-width: 270px ;
   }

@@ -12,9 +12,9 @@ const cake = (props) => {
   const [cart,setCart]= useRecoilState(CartState);
   const id = props.data.key;
   function notify() {
-    toast.success(`Chotu ek ${props.data.title} pack kr`, {
+    toast.success(`${props.data.title} Added to the Cart`, {
       position: "top-center",
-      autoClose: 400,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: false,
@@ -67,7 +67,7 @@ const cake = (props) => {
       </div>
       <ToastContainer
         position="top-center"
-        autoClose={400}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop
         closeOnClick

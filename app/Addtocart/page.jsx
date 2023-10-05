@@ -36,7 +36,7 @@ const page = () => {
         <hr />
         <div className="total">Total: ₹{total}</div>
         <Link
-          href={`https://api.whatsapp.com/send?phone=91123456789&text=Hello%20i%20want%20to%20buy%20${cartval.map(textWp)}%20,All%20total%20price%20is%20₹${total}`}
+          href={`https://api.whatsapp.com/send?phone=919937686332&text=Hello%20i%20want%20to%20buy%20${cartval.map(textWp)}%20,All%20total%20price%20is%20₹${total}`}
           target="blank"
         >
           <button className="cartbuy">

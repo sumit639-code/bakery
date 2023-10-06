@@ -4,7 +4,7 @@
     justify-content: center;
     flex-direction: column;
     padding: 20px 20px;
-    height: auto;
+    height: 100px;
     font-family: lato,sans-serif;
     transition: 400ms;
 }

@@ -13,9 +13,9 @@ const cake = (props) => {
   const [cart,setCart]= useRecoilState(CartState);
   const id = props.data.key;
 
-  useEffect(()=>{
-    localStorage.setItem('Cake',JSON.stringify(cart))
-  },[cart])
+  // useEffect(()=>{
+  //   localStorage.setItem('Cake',JSON.stringify(cart))
+  // },[cart])
   function notify() {
     toast.success(`${props.data.title} Added to the Cart`, {
       position: "top-center",

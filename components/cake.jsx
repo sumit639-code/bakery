@@ -3,14 +3,19 @@ import { CartState } from "@/app/state/atoms/CartState";
 // "use server"
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRecoilState } from "recoil";
+// const getlocalstorage = JSON.parse(localStorage.getItem('Cake'));
 
 const cake = (props) => {
   const [cart,setCart]= useRecoilState(CartState);
   const id = props.data.key;
+
+  useEffect(()=>{
+    localStorage.setItem('Cake',JSON.stringify(cart))
+  },[cart])
   function notify() {
     toast.success(`${props.data.title} Added to the Cart`, {
       position: "top-center",
@@ -39,7 +44,8 @@ const cake = (props) => {
       })
     }
   }
-
+  
+ 
   
   return (
     <>

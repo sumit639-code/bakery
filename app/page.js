@@ -7,21 +7,6 @@ import { CartState } from './state/atoms/CartState';
 
 
 const page = () => {
-  // const [ cart,setCart] = useRecoilState(CartState);
-  // useEffect(()=>{
-  //   const getlocatstorage = ()=>{
-    
-  //     let local = JSON.parse(localStorage.getItem('Cake'))
-  //     if(local == []){
-  //         return [];
-  //     }
-  //     else{
-  //         return local;
-  //     }
-  //     setCart(getlocatstorage())
-  //   }
-
-  // })
   return (
     <>
     {/* <Header /> */}

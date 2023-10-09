@@ -2,8 +2,16 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useScroll,useSpring } from "framer-motion";
+
 
 const landing = () => {
+const { scrollYProgress } = useScroll();
+const scaleX = useSpring(scrollYProgress, {
+  stiffness: 100,
+  damping: 30,
+  restDelta: 0.001
+});
   // const [width, setWidth] = useState(window.innerWidth);
   // const [height, setHeight] = useState(window.innerHeight);
   // addEventListener("resize", () => {
@@ -13,6 +21,7 @@ const landing = () => {
   // const [first, setfirst] = useState(second)
   return (
     <>
+    <motion.div className="progress-bar" style={{ scaleX: scaleX }} /> 
       <div className="img">
         <div className="text-title">
           Hello Everyone!

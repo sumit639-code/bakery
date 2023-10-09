@@ -12,15 +12,15 @@ import { useRecoilState } from "recoil";
 const cake = (props) => {
   const [cart,setCart]= useRecoilState(CartState);
   const id = props.data.key;
-  useEffect(()=>{
-    let data = window.localStorage.getItem('cake');
-    if (data != null ) setCart(JSON.parse(data))
+  // useEffect(()=>{
+  //   let data = window.localStorage.getItem('cake');
+  //   if (data != null ) setCart(JSON.parse(data))
     
-  },[])
-  useEffect(()=>{
-    window.localStorage.setItem('Cake',JSON.stringify(cart))
+  // },[])
+  // useEffect(()=>{
+  //   window.localStorage.setItem('Cake',JSON.stringify(cart))
     
-  },[cart])
+  // },[cart])
   
   function notify() {
     toast.success(`${props.data.title} Added to the Cart`, {

@@ -257,3 +257,13 @@ body {
   color:white;
   transition: 400ms;
 }
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background-color: rgba(4, 209, 4, 0.806);
+  transform-origin: 0%;
+  z-index: 9999;
+}

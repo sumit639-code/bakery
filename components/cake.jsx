@@ -65,7 +65,7 @@ const cake = (props) => {
         transition={{
           duration: 1,
           ease: [0, 0.71, 0.2, 1.01],
-          delay:Math.random()*0.5,
+          delay:Math.random()*0.39,
           scale: {
             type: "spring",
             damping: 6,

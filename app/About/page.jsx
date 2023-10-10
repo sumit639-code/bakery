@@ -47,7 +47,7 @@ const page = () => {
         transition={{
           duration: 0.6,
           ease: [0, 0.71, 0.2, 1.01],
-          delay:0.05,
+          delay:0.2,
           scale: {
             type: "spring",
             damping: 5,
@@ -76,7 +76,7 @@ const page = () => {
         transition={{
           duration:1,
           ease: [0, 0.71, 0.2, 1.01],
-          delay:0.4,
+          delay:0.2,
           scale: {
             type: "spring",
             damping: 5,
@@ -112,7 +112,7 @@ const page = () => {
         transition={{
           duration: 1,
           ease: [0, 0.71, 0.2, 1.01],
-          delay:0.4,
+          delay:0.2,
           scale: {
             type: "spring",
             damping: 5,
@@ -148,7 +148,7 @@ const page = () => {
         transition={{
           duration: 1,
           ease: [0, 0.71, 0.2, 1.01],
-          delay:0.4,
+          delay:0.2,
           scale: {
             type: "spring",
             damping: 5,

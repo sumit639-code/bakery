@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRecoilState } from "recoil";
 import { CartState } from "@/app/state/atoms/CartState";
@@ -8,6 +10,7 @@ import { toast } from "react-toastify";
 import "@/Styles/modal.css";
 
 export default function ProductModal({ cake, isOpen, onClose }) {
+  const router = useRouter();
   const [cart, setCart] = useRecoilState(CartState);
   const [quantity, setQuantity] = useState(1);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -135,6 +138,14 @@ export default function ProductModal({ cake, isOpen, onClose }) {
       e.stopPropagation();
     }
     setIsLightboxOpen(false);
+  };
+
+  const handleGoToDetails = (e) => {
+    if (e) {
+      e.stopPropagation();
+    }
+    onClose();
+    router.push(`/${cake.key}`);
   };
 
   // Touch Swipe Gesture for Lightbox
@@ -360,8 +371,34 @@ export default function ProductModal({ cake, isOpen, onClose }) {
                   <span style={{ color: "var(--text-subtle)" }}>({cake.reviews || 120}+ reviews)</span>
                 </div>
 
-                <h2 className="modal-clean-title">{cake.title}</h2>
+                <div
+                  className="modal-title-link"
+                  role="button"
+                  tabIndex={0}
+                  onClick={handleGoToDetails}
+                  onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && handleGoToDetails(e)}
+                  title="Click to view full cake details & ingredients page"
+                >
+                  <h2 className="modal-clean-title">
+                    <span>{cake.title}</span>
+                    <span className="modal-title-link-arrow">↗</span>
+                  </h2>
+                </div>
                 <p className="modal-clean-desc">{cake.desc}</p>
+
+                {/* Direct Link to Inner Details Page */}
+                <button
+                  type="button"
+                  className="modal-inner-details-banner"
+                  onClick={handleGoToDetails}
+                  title="View full cake details, ingredients & customer reviews"
+                >
+                  <span className="details-banner-text">
+                    <span className="details-banner-icon">✨</span>
+                    <span>View Full Page & Customizations</span>
+                  </span>
+                  <span className="details-banner-arrow">→</span>
+                </button>
               </div>
 
               {/* Weight / Size Selection (Hidden for Gem Cake & Doll Cake) */}

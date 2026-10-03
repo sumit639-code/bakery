@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Data from "@/Data/data.json";
+import Data2 from "@/Data/data2.json";
 import "@/Styles/dyn-route.css";
 import { useRecoilState } from "recoil";
 import { CartState } from "@/app/state/atoms/CartState";
@@ -17,7 +18,8 @@ const ProductDetailPage = ({ params }) => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   const id = parseInt(params.id, 10);
-  const cakeData = Data.find((item) => item.key === id) || Data[0];
+  const allProducts = [...Data, ...Data2];
+  const cakeData = allProducts.find((item) => item.key === id) || allProducts[0];
 
   const isGemCake =
     cakeData?.key === 5 ||

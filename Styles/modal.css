@@ -172,18 +172,96 @@
   color: var(--text-muted);
 }
 
+.modal-title-link {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.modal-title-link:hover .modal-clean-title {
+  color: var(--brand-primary);
+}
+
+.modal-title-link:hover .modal-title-link-arrow {
+  transform: translate(2px, -2px);
+  color: var(--brand-primary);
+}
+
 .modal-clean-title {
   font-family: var(--font-serif);
   font-size: clamp(20px, 3.5vw, 24px);
   font-weight: 800;
   color: var(--brand-chocolate);
   line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-title-link-arrow {
+  font-size: 16px;
+  font-family: var(--font-sans);
+  color: var(--brand-caramel);
+  font-weight: 700;
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: inline-block;
 }
 
 .modal-clean-desc {
   font-size: 13px;
   color: var(--text-muted);
   line-height: 1.45;
+}
+
+.modal-inner-details-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: #FFF7ED;
+  border: 1px solid rgba(217, 119, 6, 0.22);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  margin-top: 2px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+
+.modal-inner-details-banner:hover {
+  background: #FFEDD5;
+  border-color: var(--brand-caramel);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.15);
+}
+
+.details-banner-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--brand-chocolate);
+}
+
+.details-banner-icon {
+  font-size: 13px;
+}
+
+.details-banner-arrow {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--brand-caramel);
+  transition: transform 0.2s ease;
+}
+
+.modal-inner-details-banner:hover .details-banner-arrow {
+  transform: translateX(3px);
+  color: var(--brand-primary);
 }
 
 /* Fixed Size Banner for Gem & Doll Cakes */

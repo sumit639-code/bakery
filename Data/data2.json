@@ -1,19 +1,37 @@
 [
-    {
-        "key":0,
-        "title":"Vanilla Cup cake",
-        "desc":"topping can be of cream",
-        "price":30,
-        
-        "img":"/images/vanilla.jpg",
-        "quantity":1
-    },
-    {
-        "key":1,
-        "title":"Choclate Cup cake",
-        "desc":"topping can be of cream",
-        "price":35,
-        "img":"/images/chocolate.jpg",
-        "quantity":1
-    }
+  {
+    "key": 101,
+    "title": "Fresh Pineapple Pastry",
+    "desc": "Single-portion soft sponge with juicy pineapple crush and whipped cream.",
+    "price": 40,
+    "img": "/images/cakes/pastry.jpeg",
+    "images": [
+      "/images/cakes/pastry.jpeg",
+      "/images/cakes/pastry2.jpeg"
+    ],
+    "quantity": 1,
+    "category": "Pastry",
+    "badge": "Fresh Cream 🍍",
+    "rating": 4.9,
+    "reviews": 190,
+    "eggless": true,
+    "tag": "Soft & Juicy"
+  },
+  {
+    "key": 102,
+    "title": "Dark Choco Truffle Pastry",
+    "desc": "Rich dark chocolate pastry slice coated in silky smooth ganache glaze.",
+    "price": 50,
+    "img": "/images/cakes/choco pastry.jpeg",
+    "images": [
+      "/images/cakes/choco pastry.jpeg"
+    ],
+    "quantity": 1,
+    "category": "Pastry",
+    "badge": "Bestseller 🔥",
+    "rating": 5.0,
+    "reviews": 280,
+    "eggless": true,
+    "tag": "Double Choco"
+  }
 ]

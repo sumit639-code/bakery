@@ -1,95 +1,200 @@
 "use client";
-import Link from "next/link";
 import React, { useState } from "react";
-import "@/Styles/header.css";
-import Image from "next/image";
-import { Fragment } from "react"
-import { useRecoilValue } from "recoil";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { CartState } from "@/app/state/atoms/CartState";
-// import logo-pc from '/images/menu.png';
-const header = () => {
-  const cartCount = useRecoilValue(CartState)
-  // const [items, setItems] = useState(cartCount.length)
-  const [nav, setNav] = useState(false);
+import { CategoryState } from "@/app/state/atoms/CategoryState";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import "@/Styles/header.css";
 
-  function out() {
-    setTimeout(() => {
-      setNav(false);
-    }, 150);
-  }
+export default function Header() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const cart = useRecoilValue(CartState);
+  const [selectedCategory, setSelectedCategory] = useRecoilState(CategoryState);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  const cartCount = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+
+  const handleCategoryNav = (cat) => {
+    setSelectedCategory(cat);
+    setMobileMenuOpen(false);
+    if (pathname !== "/") {
+      router.push("/");
+    } else {
+      const el = document.getElementById("cakes-catalog-section");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      <div className="header">
-        <h1 className="title">
-          <Link href="/" className="link_dec link" onClick={out}>
-            {" "}
-            LB
+      <motion.div className="progress-bar" style={{ scaleX }} />
+
+      <header className="header-wrapper">
+        <div className="header-container">
+          {/* Brand Logo */}
+          <Link href="/" className="brand-link" onClick={() => handleCategoryNav("All")}>
+            <div className="brand-icon-box">
+              <span>🧁</span>
+            </div>
+            <div className="brand-text-wrap">
+              <span className="brand-name">Lilly's Bakery</span>
+              <span className="brand-tagline">+91 7008198415</span>
+            </div>
           </Link>
-        </h1>
-        <div className="nav">
-          <Link href="/" className="link nav-tile">
-            Home
-          </Link>
-          <Link href="/Menu" className="link nav-tile">
-            Menu
-          </Link>
-          <Link href="/About" className="link nav-tile">
-            About
-          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="desktop-nav">
+            <button
+              onClick={() => handleCategoryNav("All")}
+              className={`nav-item ${pathname === "/" && selectedCategory === "All" ? "active" : ""
+                }`}
+            >
+              Home
+            </button>
+            <button
+              onClick={() => handleCategoryNav("All")}
+              className={`nav-item ${pathname === "/" && selectedCategory !== "Cupcakes" && selectedCategory !== "All" ? "active" : ""
+                }`}
+            >
+              🎂 Cakes
+            </button>
+            <button
+              onClick={() => handleCategoryNav("Cupcakes")}
+              className={`nav-item ${selectedCategory === "Cupcakes" ? "active" : ""
+                }`}
+            >
+              🧁 Gourmet Cupcakes
+            </button>
+            <Link
+              href="/About"
+              className={`nav-item ${pathname === "/About" ? "active" : ""}`}
+            >
+              Our Story
+            </Link>
+          </nav>
+
+          {/* Header Actions */}
+          <div className="header-actions">
+            <a
+              href="https://api.whatsapp.com/send?phone=917008198415&text=Hello%20Lilly's%20Bakery!%20I%20would%20like%20to%20order%20a%20fresh%20cake."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-header-btn"
+            >
+              <span>💬</span>
+              <span>WhatsApp Order</span>
+            </a>
+
+            <Link href="/Addtocart" className="cart-pill-btn">
+              <span>🛍️</span>
+              <span className="cart-pill-text">Bag</span>
+              <span className="cart-count-badge">{cartCount}</span>
+            </Link>
+
+            <button
+              className="mobile-toggle-btn"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle Navigation Menu"
+            >
+              {mobileMenuOpen ? "✕" : "☰"}
+            </button>
+          </div>
         </div>
-        <div
-          className="menu-icon"
-          onClick={() => {
-            setNav(!nav);
-          }}
-        >
-          <Image src="/icons/menu.png" height={40} width={40} alt="menu icon" />
-        </div>
-        <div className="cartimg">
-          <Link href="/Addtocart" className="cartlink">
-            <span className="cartitemnum">{cartCount.length}</span>
-            <Image
-              src="/icons/cart.svg"
-              height={40}
-              width={40}
-              alt="cart icon"
+      </header>
+
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            <motion.div
+              className="mobile-drawer-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
             />
-          </Link>
-        </div>
-      </div>
-      {nav ? (
-        <div className="menu-mob">
-          <Link href="/" className="link menu-tile" onClick={out}>
-            Home
-          </Link>
-          <Link href="/Menu" className="link menu-tile" onClick={out}>
-            Menu
-          </Link>
-          <Link href="/About" className="link menu-tile" onClick={out}>
-            About
-          </Link>
-        </div>
-      ) : (
-        <div
-          className="menu-mob"
-          style={{
-            transform: "translateX(110%)",
-            opacity: "0",
-            display: "none",
-          }}
-        >
-          <Link href="/" className="link menu-tile" onClick={out}>
-            Home
-          </Link>
-          <Link href="/Menu" className="link menu-tile" onClick={out}>
-            Menu
-          </Link>
-          <Link href="/About" className="link menu-tile" onClick={out}>
-            About
-          </Link>
-        </div>
-      )}
+            <motion.div
+              className="mobile-drawer"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            >
+              <div className="mobile-drawer-header">
+                <div className="brand-link">
+                  <div className="brand-icon-box">🧁</div>
+                  <div className="brand-text-wrap">
+                    <span className="brand-name">Lilly's Bakery</span>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{
+                    fontSize: "20px",
+                    color: "var(--text-muted)",
+                    padding: "6px",
+                  }}
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div className="mobile-nav-list">
+                <button
+                  className="mobile-nav-item"
+                  onClick={() => handleCategoryNav("All")}
+                >
+                  <span>🏠 Home & All Bakes</span>
+                  <span>→</span>
+                </button>
+                <button
+                  className="mobile-nav-item"
+                  onClick={() => handleCategoryNav("Chocolate")}
+                >
+                  <span>🍫 Chocolate Cakes</span>
+                  <span>→</span>
+                </button>
+                <button
+                  className="mobile-nav-item"
+                  onClick={() => handleCategoryNav("Cupcakes")}
+                >
+                  <span>🧁 Gourmet Cupcakes</span>
+                  <span>→</span>
+                </button>
+                <Link
+                  href="/About"
+                  className="mobile-nav-item"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <span>✨ Our Story & Hygiene</span>
+                  <span>→</span>
+                </Link>
+              </div>
+
+              <div className="mobile-drawer-footer">
+                <a
+                  href="https://api.whatsapp.com/send?phone=917008198415&text=Hello%20Lilly's%20Bakery!%20I%20want%20to%20order%20a%20cake."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="whatsapp-checkout-btn"
+                >
+                  <span>💬 Chat & Order on WhatsApp</span>
+                </a>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
-};
-export default header;
+}

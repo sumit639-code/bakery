@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* French Patisserie Minimalist Luxury Palette */
+  --bg-main: #FAF9F6;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F4EFEA;
+  --bg-card-hover: #FFFDF9;
+  --bg-dark: #1A110B;
+  --bg-dark-card: #241810;
+
+  /* Typography Colors */
+  --text-main: #1C120C;
+  --text-muted: #66564C;
+  --text-subtle: #99887E;
+  --text-light: #FAF9F6;
+
+  /* Accent Colors */
+  --brand-primary: #E11D48;
+  --brand-primary-hover: #BE123C;
+  --brand-primary-subtle: #FFF1F2;
+  --brand-chocolate: #26150D;
+  --brand-chocolate-light: #442618;
+  --brand-caramel: #D97706;
+  --brand-caramel-bg: #FEF3C7;
+  --brand-gold: #F59E0B;
+  --brand-green: #15803D;
+  --brand-green-bg: #DCFCE7;
+  --brand-whatsapp: #25D366;
+  --brand-whatsapp-dark: #075E54;
+
+  /* Borders & Shadows */
+  --border-light: rgba(38, 21, 13, 0.07);
+  --border-medium: rgba(38, 21, 13, 0.12);
+  --border-focus: rgba(225, 29, 72, 0.3);
+
+  --shadow-xs: 0 1px 3px rgba(28, 18, 12, 0.03);
+  --shadow-sm: 0 4px 14px -2px rgba(28, 18, 12, 0.05), 0 2px 6px -1px rgba(28, 18, 12, 0.02);
+  --shadow-md: 0 10px 30px -4px rgba(28, 18, 12, 0.07), 0 4px 12px -2px rgba(28, 18, 12, 0.03);
+  --shadow-lg: 0 20px 40px -8px rgba(28, 18, 12, 0.1);
+  --shadow-glow: 0 8px 24px -2px rgba(225, 29, 72, 0.35);
+  --shadow-whatsapp: 0 8px 24px -2px rgba(37, 211, 102, 0.4);
+
+  /* Modern Button Gradients & Inner Sheens */
+  --btn-grad-primary: linear-gradient(135deg, #FF3366 0%, #E11D48 55%, #BE123C 100%);
+  --btn-grad-primary-hover: linear-gradient(135deg, #FF4D79 0%, #F43F5E 55%, #E11D48 100%);
+  --btn-grad-whatsapp: linear-gradient(135deg, #2EE879 0%, #25D366 50%, #159C46 100%);
+  --btn-grad-whatsapp-hover: linear-gradient(135deg, #38F583 0%, #2CDA6E 50%, #17A94C 100%);
+  --btn-grad-dark: linear-gradient(135deg, #2D1A10 0%, #170E08 100%);
+  --btn-grad-dark-hover: linear-gradient(135deg, #3D2417 0%, #24160E 100%);
+  --btn-inner-light: inset 0 1px 0 rgba(255, 255, 255, 0.28), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+
+  /* Border Radius */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Font Families */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-sans);
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+input, textarea, select {
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-subtle);
+}
+::-webkit-scrollbar-thumb {
+  background: #D1C5B8;
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-primary);
+}
+
+/* Top Progress bar */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-primary), var(--brand-gold), var(--brand-caramel));
+  transform-origin: 0%;
+  z-index: 99999;
+}
+
+/* Pure Veg Badge */
+.veg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--brand-green-bg);
+  color: var(--brand-green);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+}
+
+.veg-icon-box {
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid var(--brand-green);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.veg-icon-dot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--brand-green);
+  border-radius: 50%;
+}
+
+.mobile-bottom-spacer {
+  height: 72px;
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .mobile-bottom-spacer {
+    display: none;
+  }
+}

@@ -1,33 +1,72 @@
+"use client";
+import React, { useState } from "react";
 import Cake from "@/components/cake";
-import React from "react";
+import ProductModal from "@/components/ProductModal";
 import "@/Styles/menu.css";
 import Data from "@/Data/data2.json";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-const Menu = () => {
-  // Data.map((t,i)=>{
-  //   console.log(t.title);
-  // })
+const CupcakePage = () => {
+  const [selectedCupcake, setSelectedCupcake] = useState(null);
+
   return (
-    <>
-      <div className="links-menu">
-        <span className="links-pages">
-          <Link href="/Menu" className="cake-link st1">
-            Cake
-          </Link>
-          <Link href="/Cupcake" className="cake-link st2" style={{"color":"#FF5C5C"}}>
-            CupCake
-          </Link>
+    <div className="menu-page-wrapper">
+      {/* Header Banner */}
+      <div className="menu-header-banner">
+        <span className="menu-pre-title">
+          <span>🧁</span>
+          <span>Bite-Sized Indulgence • 100% Eggless</span>
         </span>
+        <h1 className="menu-main-title">Gourmet Cupcakes</h1>
+        <p className="menu-sub-desc">
+          Single-portion sweetness crafted with whipped buttercream and molten ganache swirls.
+          Complimentary gift box packaging on 6+ cupcakes!
+        </p>
       </div>
-      <div className="menu-main">
-        {Data.map((t, i) => {
-          return <Cake data={t} key={t.key} pc="/pc" />;
+
+      {/* Switcher: Cakes vs Cupcakes */}
+      <div className="category-switch-bar">
+        <div className="switch-pill-container">
+          <Link href="/Menu" className="switch-pill">
+            <span>🎂</span>
+            <span>Signature Cakes</span>
+          </Link>
+          <Link href="/Cupcake" className="switch-pill active">
+            <span>🧁</span>
+            <span>Gourmet Cupcakes</span>
+          </Link>
+        </div>
+      </div>
+
+      {/* Cupcake Grid */}
+      <motion.div
+        layout
+        className="cake-grid-layout"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        {Data.map((cupcake) => {
+          return (
+            <Cake
+              data={cupcake}
+              key={cupcake.key}
+              pc="/pc"
+              onSelect={setSelectedCupcake}
+            />
+          );
         })}
-      </div>
-      
-    </>
+      </motion.div>
+
+      {/* Animated Card Expansion Modal */}
+      <ProductModal
+        cake={selectedCupcake}
+        isOpen={!!selectedCupcake}
+        onClose={() => setSelectedCupcake(null)}
+      />
+    </div>
   );
 };
 
-export default Menu;
+export default CupcakePage;
